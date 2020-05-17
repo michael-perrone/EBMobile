@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, Picker, StyleSheet } from 'react-native';
 import Input from '../Components/RegLoginInput';
-import { transform } from '@babel/core';
+import { utils } from '../Utilities/Utils';
+
 
 let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
     11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -14,13 +15,22 @@ let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
     81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
     91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
 
-function AdminRegSeven() {
+function AdminRegSeven(props) {
+
+    const [selectedValue, setSelectedValue] = React.useState("Num");
+
+    changeValue = (itemValue) => {
+        setSelectedValue(itemValue)
+        props.getBookingColumnNumber(itemValue)
+    }
+
+
     return (
         <View style={styles.view}>
             <Text style={styles.text}>Booking Area:</Text>
-            <Input placeholder={"Booking Area"} />
-            <Text style={styles.text}>Number Booking Areas:</Text>
-            <Picker style={styles.picker} itemStyle={styles.pickerItemStyle}>
+            <Input onChangeText={props.getBookingColumnType} width={utils.width / 1.45} placeholder={"Booking Area"} />
+            <Text style={styles.text2}>Number Booking Areas:</Text>
+            <Picker onValueChange={itemValue => changeValue(itemValue)} style={styles.picker} itemStyle={styles.pickerItemStyle} selectedValue={selectedValue}>
                 <Picker.Item label="Num" />
                 {nums.map(num => <Picker.Item label={num.toString()} value={num.toString()} />)}
             </Picker>
@@ -35,6 +45,9 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 24, marginTop: 30
+    },
+    text2: {
+        fontSize: 24, marginTop: 70
     },
     picker: {
         marginTop: 30, height: 50, width: 50

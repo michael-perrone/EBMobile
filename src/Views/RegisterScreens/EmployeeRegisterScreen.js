@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Dimensions, Text, Image, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Dimensions, Text, Image, TouchableWithoutFeedback, Keyboard, StyleSheet } from 'react-native';
 import RegLoginInput from '../../Components/RegLoginInput';
 import { utils } from '../../Utilities/Utils';
 import RegisterButton from '../../Components/RegisterButton';

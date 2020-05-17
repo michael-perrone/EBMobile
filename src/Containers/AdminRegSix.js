@@ -9,11 +9,11 @@ function AdminRegSix(props) {
     return (
         <View style={styles.mainView}>
             <Text style={styles.mainText}>Weekday Schedule:</Text>
-            <DayRow day="Mon" />
-            <DayRow day="Tue" />
-            <DayRow day="Wed" />
-            <DayRow day="Thu" />
-            <DayRow day="Fri" />
+            <DayRow getOpen={props.getMonOpen} getClose={props.getMonClose} day="Mon" />
+            <DayRow getOpen={props.getTueOpen} getClose={props.getTueClose} day="Tue" />
+            <DayRow getOpen={props.getWedOpen} getClose={props.getWedClose} day="Wed" />
+            <DayRow getOpen={props.getThuOpen} getClose={props.getThuClose} day="Thu" />
+            <DayRow getOpen={props.getFriOpen} getClose={props.getFriClose} day="Fri" />
         </View>
     )
 }

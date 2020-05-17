@@ -4,12 +4,11 @@ import { utils } from '../Utilities/Utils';
 import DayRow from './DayRow';
 
 function AdminRegFive(props) {
-
     return (
         <View style={styles.mainView}>
             <Text style={styles.mainText}>Weekend Schedule:</Text>
-            <DayRow day="Sat" />
-            <DayRow day="Sun" />
+            <DayRow getOpen={props.getSatOpen} getClose={props.getSatClose} day="Sat" />
+            <DayRow getOpen={props.getSunOpen} getClose={props.getSunClose} day="Sun" />
         </View>
     )
 }

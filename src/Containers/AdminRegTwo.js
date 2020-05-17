@@ -8,10 +8,10 @@ function AdminRegTwo(props) {
     return (
         <View style={{ alignItems: 'center' }}>
             <Text style={styles.mainText}>Business Location:</Text>
-            <Input placeholder={"Business Street"} width={utils.width / 1.4} />
-            <Input placeholder={"Business City"} width={utils.width / 1.4} />
-            <Input placeholder={"Business State"} width={utils.width / 1.4} />
-            <Input placeholder={"Business Zip"} width={utils.width / 1.4} />
+            <Input onChangeText={props.getBusinessStreet} placeholder={"Business Street"} width={utils.width / 1.4} />
+            <Input onChangeText={props.getBusinessCity} placeholder={"Business City"} width={utils.width / 1.4} />
+            <Input onChangeText={props.getBusinessState} placeholder={"Business State"} width={utils.width / 1.4} />
+            <Input onChangeText={props.getBusinessZip} placeholder={"Business Zip"} width={utils.width / 1.4} />
         </View>
     )
 

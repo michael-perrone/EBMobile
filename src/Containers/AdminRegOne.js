@@ -1,16 +1,23 @@
 import React from 'react';
 import RegLoginInput from '../Components/RegLoginInput';
 
-import { View, Text, Picker, StyleSheet } from 'react-native';
+import { View, Text, Picker, StyleSheet, ShadowPropTypesIOS } from 'react-native';
 import { utils } from '../Utilities/Utils'
 
-function AdminRegOne() {
+function AdminRegOne(props) {
+    const [typeSelected, setTypeSelected] = React.useState("1")
+
+    getValue = (itemValue) => {
+        props.getTypeBusiness(itemValue);
+        setTypeSelected(itemValue);
+    }
+
     return (
         <View style={styles.mainView}>
             <Text style={styles.mainText}>Name of Business:</Text>
-            <RegLoginInput width={utils.width / 1.4} marginTop={25} placeholder={"Name of Business"} />
+            <RegLoginInput onChangeText={props.getNameBusiness} width={utils.width / 1.4} marginTop={25} placeholder={"Name of Business"} />
             <Text style={styles.mainText}>Type of Business:</Text>
-            <Picker selectedValue="1" style={styles.pickerWidth} itemStyle={styles.pickerHeight}>
+            <Picker onValueChange={getValue} selectedValue={typeSelected} style={styles.pickerWidth} itemStyle={styles.pickerHeight}>
                 <Picker.Item label="Wax Center" value="Wax Center" />
                 <Picker.Item label="Beauty Center" value="Beauty Center" />
                 <Picker.Item label="Fitness Center" value="Fitness Center" />

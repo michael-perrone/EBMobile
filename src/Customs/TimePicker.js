@@ -12,8 +12,22 @@ let times =
         "10:30 PM", "11:00 PM", "11:30 PM"]
 
 function TimePicker(props) {
+
+    const [selectedValue, setSelectedValue] = React.useState("")
+
+
+    getValue = (itemValue) => {
+        if (props.open === "Close") {
+            props.getClose(itemValue)
+        }
+        else if (props.open === "Open") {
+            props.getOpen(itemValue)
+        }
+        setSelectedValue(itemValue)
+    }
+
     return (
-        <Picker selectedValue={props.open} style={styles.pickerStyle} itemStyle={styles.itemStyle}>
+        <Picker onValueChange={itemValue => getValue(itemValue)} selectedValue={selectedValue} style={styles.pickerStyle} itemStyle={styles.itemStyle}>
             {props.open && <Picker.Item label={props.open} value=""></Picker.Item>}
             {!props.open && <Picker.Item label={props.open} value=""></Picker.Item>}
             <Picker.Item label={"Closed"} />

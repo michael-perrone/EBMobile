@@ -8,8 +8,8 @@ function AdminRegTwo(props) {
     return (
         <View>
             <Text style={styles.mainText}>Business Information:</Text>
-            <Input placeholder={"Business Phone"} width={utils.width / 1.4} />
-            <Input placeholder={"Business Website"} width={utils.width / 1.4} />
+            <Input placeholder={"Business Phone"} onChangeText={props.getPhoneNumber} width={utils.width / 1.4} />
+            <Input placeholder={"Business Website"} onChangeText={props.getWebsite} width={utils.width / 1.4} />
         </View>
     )
 }
