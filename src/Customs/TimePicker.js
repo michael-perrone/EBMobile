@@ -1,5 +1,6 @@
 import React from 'react';
-import { Picker, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Picker } from '@react-native-community/picker';
 
 let times =
     ["12:00 AM", "12:30 AM", "1:00 AM", "1:30 AM", "2:00 AM", "2:30 AM",
@@ -13,27 +14,22 @@ let times =
 
 function TimePicker(props) {
 
-    const [selectedValue, setSelectedValue] = React.useState("")
+    const [selectedValue, setSelectedValue] = React.useState(props.open === "Close" ? "Close" : "Open")
 
 
     getValue = (itemValue) => {
-        if (props.open === "Close") {
-            props.getClose(itemValue)
-        }
-        else if (props.open === "Open") {
-            props.getOpen(itemValue)
-        }
+        console.log(props)
         setSelectedValue(itemValue)
     }
+    console.log(props)
 
     return (
-        <Picker onValueChange={itemValue => getValue(itemValue)} selectedValue={selectedValue} style={styles.pickerStyle} itemStyle={styles.itemStyle}>
+        <Picker onValueChange={(itemValue) => getValue(itemValue)} selectedValue={selectedValue} style={styles.pickerStyle} itemStyle={styles.itemStyle}>
             {props.open && <Picker.Item label={props.open} value=""></Picker.Item>}
-            {!props.open && <Picker.Item label={props.open} value=""></Picker.Item>}
             <Picker.Item label={"Closed"} />
-            {times.map(time => {
+            {times.map((time, index) => {
                 return (
-                    <Picker.Item key={time} label={time} value={time}></Picker.Item>
+                    <Picker.Item key={time + props.id + index} label={time} value={time}></Picker.Item>
                 )
             })}
         </Picker>

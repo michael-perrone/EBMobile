@@ -37,20 +37,20 @@ function AdminRegisterScreen(props) {
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [website, setWebsite] = useState("");
-    const [sunOpen, setSunOpen] = useState("");
-    const [sunClose, setSunClose] = useState("");
-    const [satOpen, setSatOpen] = useState("");
-    const [satClose, setSatClose] = useState("");
-    const [monOpen, setMonOpen] = useState("");
-    const [monClose, setMonClose] = useState("");
-    const [tueOpen, setTueOpen] = useState("");
-    const [tueClose, setTueClose] = useState("");
-    const [wedOpen, setWedOpen] = useState("");
-    const [wedClose, setWedClose] = useState("");
-    const [thuOpen, setThuOpen] = useState("");
-    const [thuClose, setThuClose] = useState("");
-    const [friClose, setFriClose] = useState("");
-    const [friOpen, setFriOpen] = useState("");
+    const [sunOpen, setSunOpen] = useState("Open");
+    const [sunClose, setSunClose] = useState("Close");
+    const [satOpen, setSatOpen] = useState("Open");
+    const [satClose, setSatClose] = useState("Close");
+    const [monOpen, setMonOpen] = useState("Open");
+    const [monClose, setMonClose] = useState("Close");
+    const [tueOpen, setTueOpen] = useState("Open");
+    const [tueClose, setTueClose] = useState("Close");
+    const [wedOpen, setWedOpen] = useState("Open");
+    const [wedClose, setWedClose] = useState("Close");
+    const [thuOpen, setThuOpen] = useState("Open");
+    const [thuClose, setThuClose] = useState("Close");
+    const [friClose, setFriClose] = useState("Close");
+    const [friOpen, setFriOpen] = useState("Open");
     const [bookingColumnType, setBookingColumnType] = useState("");
     const [bookingColumnNumber, setBookingColumnNumber] = useState("");
 
@@ -135,6 +135,7 @@ function AdminRegisterScreen(props) {
 
     getSatOpen = satOpen => {
         setSatOpen(satOpen)
+        console.log(satOpen)
     }
 
     getSatClose = satClose => {
@@ -258,7 +259,7 @@ function AdminRegisterScreen(props) {
             {regTwoShowing && <AdminRegTwo getBusinessStreet={getBusinessStreet} getBusinessCity={getBusinessCity} getBusinessState={getBusinessState} getBusinessZip={getBusinessZip} />}
             {regThreeShowing && <AdminRegThree getEmail={getEmail} getPassword={getPassword} getFullName={getFullName} getPasswordConfirm={getPasswordConfirm} />}
             {regFourShowing && <AdminRegFour getWebsite={getWebsite} getPhoneNumber={getPhoneNumber} />}
-            {regFiveShowing && <AdminRegFive getSatOpen={getSatOpen} getSatClose={getSatClose} getSunOpen={getSunOpen} getSunClose={getSunClose} />}
+            {regFiveShowing && <AdminRegFive getSatOpen={getSatOpen} satOpen={satOpen} satClose={satClose} sunOpen={sunOpen} sunClose={sunClose} getSatClose={getSatClose} getSunOpen={getSunOpen} getSunClose={getSunClose} />}
             {regSixShowing && <AdminRegSix getMonOpen={getMonOpen} getMonClose={getMonClose} getTuOpen={getTueOpen} getTueClose={getTueClose} getWedOpen={getWedOpen} getWedClose={getWedClose} getThuOpen={getThuOpen} getThuClose={getThuClose} getFriOpen={getFriOpen} getFriClose={getFriClose} />}
             {regSevenShowing && <AdminRegSeven getBookingColumnType={getBookingColumnType} getBookingColumnNumber={getBookingColumnNumber} />}
             <HelpButton onClick={() => setVisible(true)} />

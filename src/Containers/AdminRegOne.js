@@ -1,7 +1,7 @@
 import React from 'react';
 import RegLoginInput from '../Components/RegLoginInput';
-
-import { View, Text, Picker, StyleSheet, ShadowPropTypesIOS } from 'react-native';
+import { Picker } from '@react-native-community/picker';
+import { View, Text, StyleSheet } from 'react-native';
 import { utils } from '../Utilities/Utils'
 
 function AdminRegOne(props) {

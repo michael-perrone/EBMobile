@@ -5,6 +5,7 @@ import TimePicker from '../Customs/TimePicker';
 
 
 function DayRow(props) {
+    console.log(props.setOpen)
     return (
         <View style={{
             display: 'flex',
@@ -14,8 +15,8 @@ function DayRow(props) {
             marginTop: props.marginTop ? props.marginTop : 40
         }}>
             <Text style={styles.dayText}>{props.day}:</Text>
-            <TimePicker getOpen={props.getOpen} open={"Open"} />
-            <TimePicker getClose={props.getClose} open={"Close"} />
+            <TimePicker id={1} setOpen={props.setOpen} open={"Open"} />
+            <TimePicker id={2} setClose={props.setClose} open={"Close"} />
         </View>
     )
 }

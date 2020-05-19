@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View, Picker, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import Input from '../Components/RegLoginInput';
 import { utils } from '../Utilities/Utils';
-
+import { Picker } from '@react-native-community/picker';
 
 let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
     11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
