@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Dimensions, Text, Image, TouchableWithoutFeedback, Keyboard, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableWithoutFeedback, Keyboard, StyleSheet } from 'react-native';
 import RegLoginInput from '../../Components/RegLoginInput';
 import { utils } from '../../Utilities/Utils';
 import RegisterButton from '../../Components/RegisterButton';
@@ -8,25 +8,55 @@ import BackButton from '../../Components/BackButton';
 
 
 function EmployeeRegisterScreen(props) {
-    console.log('hi')
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+
     goBack = () => {
-        console.log('hi')
-        props.navigation.goBack();
+        props.navigation.goBack()
     }
+
+    getFullName = (fullName) => {
+        setFullName(fullName)
+    }
+
+    getEmail = (email) => {
+        setEmail(email)
+    }
+
+    getPassword = (pass) => {
+        setPassword(pass)
+    }
+
+    getConfirmPass = (confirmPass) => {
+        setConfirmPassword(confirmPass)
+    }
+
+    registerEmployer = () => {
+        const data = { fullName, email, createPassword: password }
+        axios.post('http://localhost:8080/api/employeeSignup', data).then(
+            response => {
+                if (response.status === 200) {
+                    props.userLogin(response.data.token)
+                }
+            }
+        )
+    }
+
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.mainView}>
                 <BackButton onPress={goBack} />
-                <RegLoginInput placeholder={"Full Name"} />
-                <RegLoginInput placeholder={"Email"} />
-                <RegLoginInput placeholder={"Password"} secureTextEntry={true} />
-                <RegLoginInput placeholder={"Confirm Password"} secureTextEntry={true} />
-                <RegLoginInput placeholder={"Employer Name"} />
-                <RegisterButton onPress={goBack}>Register Employee</RegisterButton>
+                <RegLoginInput onTextChange={getFullName} placeholder={"Full Name"} />
+                <RegLoginInput onTextChange={getEmail} placeholder={"Email"} />
+                <RegLoginInput onTextChange={getPassword} placeholder={"Password"} secureTextEntry={true} />
+                <RegLoginInput onTextChange={getConfirmPass} placeholder={"Confirm Password"} secureTextEntry={true} />
+                <RegisterButton onPress={registerEmployer}>Register Employee</RegisterButton>
             </View>
         </TouchableWithoutFeedback>
-
     )
 }
 

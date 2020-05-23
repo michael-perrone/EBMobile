@@ -55,34 +55,7 @@ function AdminRegisterScreen(props) {
     const [bookingColumnNumber, setBookingColumnNumber] = useState("");
 
     finish = () => {
-        console.log(nameBusiness, "Name Business");
-        console.log(typeBusiness, "Type Business");
-        console.log(monOpen, "Mon Open");
-        console.log(monClose, "Mon CLose");
-        console.log(tueOpen, "tue Open");
-        console.log(tueClose, "tue CLose")
-        console.log(wedOpen, "wed Open");
-        console.log(wedClose, "wed CLose");
-        console.log(thuOpen, "thu Open");
-        console.log(thuClose, "thu CLose");
-        console.log(friOpen, "fri Open");
-        console.log(friClose, "fri CLose");
-        console.log(satOpen, "sat Open");
-        console.log(satClose, "sat CLose");
-        console.log(sunOpen, "sun Open");
-        console.log(sunClose, "sun CLose");
-        console.log(businessStreet, "business Street");
-        console.log(businessState, "business State");
-        console.log(businessZip, "business Zip");
-        console.log(businessCity, "business City");
-        console.log(bookingColumnType, "Booking Column Type");
-        console.log(bookingColumnNumber, "Booking Column number");
-        console.log(email, "email");
-        console.log(password, "password")
-        console.log(passwordConfirm, "passwordConfirm")
-        console.log(fullName, "fullName")
-        console.log(website, "website");
-        console.log(phoneNumber, "phone number")
+
     }
 
     getNameBusiness = (text) => {
@@ -260,7 +233,7 @@ function AdminRegisterScreen(props) {
             {regThreeShowing && <AdminRegThree getEmail={getEmail} getPassword={getPassword} getFullName={getFullName} getPasswordConfirm={getPasswordConfirm} />}
             {regFourShowing && <AdminRegFour getWebsite={getWebsite} getPhoneNumber={getPhoneNumber} />}
             {regFiveShowing && <AdminRegFive getSatOpen={getSatOpen} satOpen={satOpen} satClose={satClose} sunOpen={sunOpen} sunClose={sunClose} getSatClose={getSatClose} getSunOpen={getSunOpen} getSunClose={getSunClose} />}
-            {regSixShowing && <AdminRegSix getMonOpen={getMonOpen} getMonClose={getMonClose} getTuOpen={getTueOpen} getTueClose={getTueClose} getWedOpen={getWedOpen} getWedClose={getWedClose} getThuOpen={getThuOpen} getThuClose={getThuClose} getFriOpen={getFriOpen} getFriClose={getFriClose} />}
+            {regSixShowing && <AdminRegSix getMonOpen={getMonOpen} monOpen={monOpen} monClose={monClose} getMonClose={getMonClose} getTueOpen={getTueOpen} tueOpen={tueOpen} tueClose={tueClose} getTueClose={getTueClose} getWedOpen={getWedOpen} wedOpen={wedOpen} wedClose={wedClose} getWedClose={getWedClose} getThuOpen={getThuOpen} thuOpen={thuOpen} thuClose={thuClose} getThuClose={getThuClose} getFriOpen={getFriOpen} friOpen={friOpen} friClose={friClose} getFriClose={getFriClose} />}
             {regSevenShowing && <AdminRegSeven getBookingColumnType={getBookingColumnType} getBookingColumnNumber={getBookingColumnNumber} />}
             <HelpButton onClick={() => setVisible(true)} />
             <AdminRegHelp closeModal={() => setVisible(false)} visible={visible} />
